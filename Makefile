@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/09/24 10:58:22 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/09 13:07:57 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,14 @@ LIBFT_DIR = ./libft/
 LIBFT_NAME = libft.a
 LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_NAME))
 
-all: $(NAME)
+all: 
+	@Make --no-print-directory libs
+	@make -C $(MLX)
+	@Make --no-print-directory $(NAME)
 
-$(NAME): $(LIBF) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS) 
 	cc $(FLAGS) $(LIBFT) $(OBJS) -o $(NAME)
-
+	cc $(FLAGS) -I $(MLX) -L $(MLX) -l mlx -framework OpenGL -framework AppKit main_mandel_movzoom_color.c colors.c mlx.c event_hook.c mandel.c mandel_utils.c -o mandel
 
 %.o: %.c Makefile $(HEADER)
 	cc $(FLAGS) -c $< -o $@
@@ -46,10 +49,10 @@ julia0:
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): Makefile $(HEADER_BONUS) $(LIBFT)
-	cc $(FLAGS) $(SRC_SERV_BONUS) $(LIBFT) -o $(NAME_SERV_BONUS)
+	cc $(FLAGS) $(SRC_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
-$(LIBFT):
-	@make -C $(LIBFT_DIR)
+libs:
+	@$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	@make --no-print-directory clean -C $(LIBFT_DIR)
@@ -57,8 +60,8 @@ clean:
 
 fclean: clean
 	@make --no-print-directory fclean -C $(LIBFT_DIR)
-	@echo "--> Remove files : $(NAME) $(NAME_BONUS)"
-	rm -f $(NAME) $(NAME_BONUS)
+	@echo "--> Remove files : $(NAME) $(NAME_BONUS) mandel"
+	rm -f $(NAME) $(NAME_BONUS) mandel
 
 re: fclean all
 

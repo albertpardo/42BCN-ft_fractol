@@ -6,12 +6,12 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 17:18:38 by apardo-m          #+#    #+#              #
-#    Updated: 2023/09/24 10:52:17 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/08 18:04:08 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-HEADER = libft.h
+HEADERS = libft.h ft_printf.h
 FLAGS = -Wall -Wextra -Werror
 AR_FLAGS = -rcs
 SRCS_LIBFT = ft_atoi.c \
@@ -89,7 +89,7 @@ bonus: .bonus
 	@echo "-->BONUS  Library Completed!"
 	@touch .bonus
 
-%.o: %.c Makefile $(HEADER)
+%.o: %.c Makefile $(HEADERS)
 	cc $(FLAGS) -c $< -o $@
 	
 clean:
