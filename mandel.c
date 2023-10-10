@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:43:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 12:44:33 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:52:15 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  */
 
 #include "fractol.h"
-#include "mandel.h"
+#include "mandel_julia.h"
 
 static int	inoutmandel(t_complexnum c, int MaxIteration)
 {

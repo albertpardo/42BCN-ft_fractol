@@ -2,5 +2,6 @@
 *.o
 **/*.o
 **/*.a
+.*.swp
 fractol
 mandel

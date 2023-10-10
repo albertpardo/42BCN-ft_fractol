@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel.h                                           :+:      :+:    :+:   */
+/*   mandel_julia.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:03:59 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 13:04:06 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:47:37 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef MANDEL_H
-# define MANDEL_H
+#ifndef MANDEL_JULIA_H
+# define MANDEL_JULIA_H
 
 typedef struct complexnum
 {

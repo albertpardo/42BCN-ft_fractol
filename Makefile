@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/09 13:07:57 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/10 12:26:08 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,13 @@ MLX = $(MLX_OPENGL)
 
 NAME = fractol
 SRC = $(NAME).c \
-	  cli_utils.c
+		cli_utils.c \
+		mandel_movzoom_color.c \
+		colors.c \
+		mlx.c \
+		event_hook.c \
+		mandel.c \
+		mandel_utils.c
 
 HEADER = cli.h
 OBJS = $(SRC:%.c=%.o)
@@ -35,12 +41,12 @@ all:
 	@make -C $(MLX)
 	@Make --no-print-directory $(NAME)
 
+
 $(NAME): $(LIBFT) $(OBJS) 
-	cc $(FLAGS) $(LIBFT) $(OBJS) -o $(NAME)
-	cc $(FLAGS) -I $(MLX) -L $(MLX) -l mlx -framework OpenGL -framework AppKit main_mandel_movzoom_color.c colors.c mlx.c event_hook.c mandel.c mandel_utils.c -o mandel
+	cc $(FLAGS)  -L $(MLX) -l mlx -framework OpenGL -framework AppKit $(LIBFT) $(OBJS) -o $(NAME)
 
 %.o: %.c Makefile $(HEADER)
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -I $(MLX) -c $< -o $@
 
 julia0:
 	make -C $(MLX)

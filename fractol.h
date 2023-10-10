@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol4V2.h                                       :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 16:14:38 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/09/08 15:11:39 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/10 11:55:01 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL4V2_H
-# define FRACTOL4V2_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include <mlx.h>
 # include <stdio.h>
@@ -84,19 +84,22 @@ typedef struct s_winimg
 	t_imgdata	*img;
 }				t_winimg;
 
-// 4_colorsV1.c
+// colors.c
 int			setcolor(int actv_pal, int n, const int maxiter);
 
-// 4_mandel_V0.c
+// mandel.c
 void		basic_mandel(int MaxIteration, t_imgdata *img);
 
-//4_mlx_V0.c
+// mlx.c
 void		my_put_pixel(t_imgdata *data, int x, int y, int color);
 t_mlxdata	start_newindow(int w, int h, char *str);
 t_imgdata	start_newimage(t_mlxdata win);
 
-//4_event_hook_V0.c
+//event_hook.c
 int			exit_x(t_winimg *winimg);
 int			deal_key(int key, t_winimg *winimg);
 int			mouse_event(int button, int x, int y, t_winimg *winimg);
+
+// mandel_movzoom_color.c
+void mandel_movzoom_color();
 #endif

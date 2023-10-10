@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:47:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 13:05:25 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:33:01 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  */
 
 #include "fractol.h"
-#include "mandel.h"
+#include "mandel_julia.h"
 
 static double	getfactor( double max, double min, int reference)
 {

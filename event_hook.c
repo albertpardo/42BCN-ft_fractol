@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:36:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 12:36:29 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:38:09 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int	exit_x(t_winimg *winimg)
 	return (0);
 }
 
+/* TODO Diferenciate Mandel vs Julia */
 static void	refresh_img(t_winimg *winimg)
 {
-	basic_mandel(MAX_ITER, winimg->img);
+	basic_mandel(MAX_ITER, winimg->img); //Here Julia
 	mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
 	mlx_put_image_to_window(winimg->win->mlx_ptr, \
 		winimg->win->win_ptr, winimg->img->img, 0, 0);

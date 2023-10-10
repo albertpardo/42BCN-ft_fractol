@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:29:16 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 12:29:54 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:33:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #define WHITE       0xFFFFFF  // RGB(255, 255, 255)
 #define RED         0xFF0000  // RGB(255, 0, 0)
 #define GREEN       0x00FF00  // RGB(0, 255, 0)
-#define BLUE        0000FF  // RGB(0, 0, 255)
+#define BLUE        0x0000FF  // RGB(0, 0, 255)
 
 // Psychedelic colors
 #define MAGENTA_BURST   0xFF00FF  // A vibrant magenta
