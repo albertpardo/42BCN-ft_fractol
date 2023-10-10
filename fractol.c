@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 11:29:42 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:14:27 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '1')
 	{
 		ft_printf("Maldenbrot selected\n");
-		mandel_movzoom_color();
+		mandel_julia(MANDEL_SET);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2')
 		ft_printf("Julia selected without arguments\n");

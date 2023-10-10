@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 11:55:01 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:17:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@
 # define MAX_PALETES 7
 # define DEFAULT_PALETE 3
 
+# define MANDEL_SET 1
+# define JULIA_SET 2
+
+
 typedef struct mlxdata
 {
 	void	*mlx_ptr;
@@ -76,6 +80,7 @@ typedef struct s_imgdata
 	int		x_mouse;
 	int		y_mouse;
 	int		act_plte;
+	int		fractol_set;
 }				t_imgdata;
 
 typedef struct s_winimg
@@ -87,8 +92,8 @@ typedef struct s_winimg
 // colors.c
 int			setcolor(int actv_pal, int n, const int maxiter);
 
-// mandel.c
-void		basic_mandel(int MaxIteration, t_imgdata *img);
+// set_mandel_julia.c
+void		set_mandel_julia(int MaxIteration, t_imgdata *img);
 
 // mlx.c
 void		my_put_pixel(t_imgdata *data, int x, int y, int color);
@@ -100,6 +105,6 @@ int			exit_x(t_winimg *winimg);
 int			deal_key(int key, t_winimg *winimg);
 int			mouse_event(int button, int x, int y, t_winimg *winimg);
 
-// mandel_movzoom_color.c
-void mandel_movzoom_color();
+// mandel_julia.c
+void		mandel_julia(int fractol_set);
 #endif

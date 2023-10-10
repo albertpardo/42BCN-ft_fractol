@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel.c                                           :+:      :+:    :+:   */
+/*   set_mandel_julia.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:43:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 10:52:15 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:31:33 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	inoutmandel(t_complexnum c, int MaxIteration)
 	return (n);
 }
 
-void	basic_mandel(int maxiter, t_imgdata *img)
+void	set_mandel_julia(int maxiter, t_imgdata *img)
 {
 	int						x;
 	int						y;

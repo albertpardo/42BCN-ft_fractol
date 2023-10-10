@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:36:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 15:38:09 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:24:02 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	exit_x(t_winimg *winimg)
 /* TODO Diferenciate Mandel vs Julia */
 static void	refresh_img(t_winimg *winimg)
 {
-	basic_mandel(MAX_ITER, winimg->img); //Here Julia
+	set_mandel_julia(MAX_ITER, winimg->img); //Here Julia
 	mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
 	mlx_put_image_to_window(winimg->win->mlx_ptr, \
 		winimg->win->win_ptr, winimg->img->img, 0, 0);
@@ -80,7 +80,7 @@ int	mouse_event(int button, int x, int y, t_winimg *winimg)
 			winimg->img->zoom = 1.0 / ZOOM_VAL;
 		else if (button == ZOOM_OUT_BUTTON)
 			winimg->img->zoom = ZOOM_VAL;
-		basic_mandel(MAX_ITER, winimg->img);
+		set_mandel_julia(MAX_ITER, winimg->img);
 		mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
 		mlx_put_image_to_window(winimg->win->mlx_ptr, \
 			winimg->win->win_ptr, winimg->img->img, 0, 0);

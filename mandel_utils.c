@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:47:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 10:33:01 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:48:29 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ static void	mandelzoom(t_mandel_data *data, t_imgdata *img)
 t_mandel_data	getmandelinitdata(t_imgdata *img)
 {
 	t_mandel_data	dt;
-
+	
+	printf("fractol = %d\n", img->fractol_set);
 	dt.hasbeeninit = 1;
 	dt.minre = -2.0;
 	dt.maxre = 1.0;
