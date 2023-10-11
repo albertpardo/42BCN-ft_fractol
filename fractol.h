@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 17:17:31 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:13:25 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_imgdata
 	int		y_mouse;
 	int		act_plte;
 	int		fractol_set;
+	double	julia_re;
+	double	julia_img;
 }				t_imgdata;
 
 typedef struct s_winimg
@@ -106,5 +108,5 @@ int			deal_key(int key, t_winimg *winimg);
 int			mouse_event(int button, int x, int y, t_winimg *winimg);
 
 // mandel_julia.c
-void		mandel_julia(int fractol_set);
+void		mandel_julia(int fractol_set , double julia_re, double julia_im);
 #endif

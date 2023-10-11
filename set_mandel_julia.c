@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:43:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 17:31:33 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:13:27 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 #include "fractol.h"
 #include "mandel_julia.h"
 
-static int	inoutmandel(t_complexnum c, int MaxIteration)
+static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 {
 	t_complexnum	z;
 	t_complexnum	z2;
+	t_complexnum	ct;
 	int				n;
 
 	z.re = c.re;
@@ -34,10 +35,17 @@ static int	inoutmandel(t_complexnum c, int MaxIteration)
 	z2.re = z.re * z.re;
 	z2.im = z.im * z.im;
 	n = 0;
+	ct.re = c.re;
+	ct.im = c.im;
+	if (img->fractol_set == JULIA_SET)
+	{
+		ct.re = img->julia_re;
+		ct.im = img->julia_img;
+	}
 	while ((z2.re + z2.im) < 4 && n < MaxIteration)
 	{
-		z.im = 2 * z.re * z.im + c.im;
-		z.re = z2.re - z2.im + c.re;
+		z.im = 2 * z.re * z.im + ct.im;
+		z.re = z2.re - z2.im + ct.re;
 		z2.re = z.re * z.re;
 		z2.im = z.im * z.im;
 		n++;
@@ -66,7 +74,7 @@ void	set_mandel_julia(int maxiter, t_imgdata *img)
 		while (x < img->width)
 		{
 			c.re = (mdat.maxre - mdat.minre) / img->width * x + mdat.minre;
-			color = setcolor(img->act_plte, inoutmandel(c, maxiter), maxiter);
+			color = setcolor(img->act_plte, getvalmandjul(c, maxiter, img), maxiter);
 			my_put_pixel(img, x, y, color);
 			x++;
 		}

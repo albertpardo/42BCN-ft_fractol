@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:47:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 16:48:29 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:56:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,16 @@ t_mandel_data	getmandelinitdata(t_imgdata *img)
 	printf("fractol = %d\n", img->fractol_set);
 	dt.hasbeeninit = 1;
 	dt.minre = -2.0;
-	dt.maxre = 1.0;
-	dt.minim = -1.5;
+	if (img->fractol_set == MANDEL_SET)
+	{
+		dt.maxre = 1.0;
+		dt.minim = -1.5;
+	}
+	else 
+	{
+		dt.maxre = 2.0;
+		dt.minim = -2.0;
+	}
 	dt.maxim = maxValue(dt.minim, &dt, img);
 	dt.factor_ncmplx = getfactor_numcplx(&dt, img);
 	return (dt);

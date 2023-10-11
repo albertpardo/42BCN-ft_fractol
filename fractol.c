@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 17:14:27 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:13:22 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 #define KO_MESSAGE "||   No  valid arguments.  ||"
 #define KO_JULIA_MESSAGE "||   No  valid arguments for Julia.  ||" 
+#define JULIA_RE -1.9
+#define JULIA_IM 0.7
 
 static void	printinfo(void)
 {
@@ -27,7 +29,7 @@ static void	printinfo(void)
 	ft_printf("\t- 1) Mandelbrot fractal.\n");
 	ft_printf("\t- 2) Julia fractal\n");
 	ft_printf("\t- 3) TODEFINE fractal\n");
-	ft_printf("\nUsage: \n");
+	ft_printf("\nUsage:\n");
 	ft_printf("./fractol [Fractal_Number]\n\n");
 	ft_printf("Julia has two optional params. Julia usage:\n");
 	ft_printf("./fractol 2 [real] [imaginary]\n\n");
@@ -60,7 +62,11 @@ static void	managerargsjulia(char *cre, char *cim)
 		ft_printf("\t Conversion: \n");
 		printf("\t\treal = %f, img = %f\n", re, im);
 		if ((re * re + im * im) <= 4.0)
+		{
+			mandel_julia(JULIA_SET, re , im);
 			ft_printf("\nJulia selected with valid arguments\n");
+			mandel_julia(MANDEL_SET, re , im);
+		}
 		else
 			ft_printf("\nArguments must be : (real^2 + imaginary^2) =< 4.\n");
 	}
@@ -73,10 +79,13 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '1')
 	{
 		ft_printf("Maldenbrot selected\n");
-		mandel_julia(MANDEL_SET);
+		mandel_julia(MANDEL_SET, 0.0 , 0.0);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2')
+	{
 		ft_printf("Julia selected without arguments\n");
+		mandel_julia(JULIA_SET, JULIA_RE, JULIA_IM);
+	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '3')
 		ft_printf("TODEFINE fractal selected\n");
 	else if (argc == 4 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2' )
