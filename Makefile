@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/12 09:01:13 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/12 16:06:23 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,14 @@ SRC = $(NAME).c \
 		mandel_julia.c \
 		mandel_julia_utils.c \
 		mandel_julia_zoom_utils.c \
-		mlx.c \
-		set_mandel_julia.c 
+		using_mlx.c \
+		set_mandel_julia.c
 
-HEADER = cli.h
+HEADERS = cli.h \
+		 fractol.h \
+		 mandel_julia.h \
+		 mandel_julia_zoom_utils.h
+
 OBJS = $(SRC:%.c=%.o)
 
 NAMES_BONUS = fractol_bonus
@@ -47,12 +51,8 @@ all:
 $(NAME): $(LIBFT) $(OBJS) 
 	cc $(FLAGS)  -L $(MLX) -l mlx -framework OpenGL -framework AppKit $(LIBFT) $(OBJS) -o $(NAME)
 
-%.o: %.c Makefile $(HEADER)
+%.o: %.c Makefile $(HEADERS)
 	cc $(FLAGS) -I $(MLX) -c $< -o $@
-
-julia0:
-	make -C $(MLX)
-	gcc $(FLAGS)  -I $(MLX) -L $(MLX) -l mlx -framework OpenGL -framework AppKit 5_frac_movzoom_color_V0.c 5_colors_V0.c 5_mlx_V0.c 5_event_hook_V0.c 5_julia_V0.c 5_julia_utils_V0.c
 
 bonus: $(NAME_BONUS)
 

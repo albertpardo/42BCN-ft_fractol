@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 08:51:59 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:50:41 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int			setcolor(int actv_pal, int n, const int maxiter);
 // set_mandel_julia.c
 void		set_mandel_julia(int MaxIteration, t_imgdata *img);
 
-// mlx.c
+// using_mlx.c
 void		my_put_pixel(t_imgdata *data, int x, int y, int color);
 t_mlxdata	start_newindow(int w, int h, char *str);
 t_imgdata	start_newimage(t_mlxdata win);
