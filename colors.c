@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:29:16 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 09:37:52 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:34:44 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,13 @@ static int	getcolor(int n, const int maxiter, int *palete, int ncolpalete)
 	return (map(palete[i - 1], palete[i], n, maxiter));
 }
 
-int	setcolor(int actv_pal, int n, const int maxiter)
+static int	getcolorpaletes1(int actv_pal, int n, const int maxiter)
 {
 	static int	palete1[5] = {ELECTRIC_BLUE, MAGENTA_BURST, LAVA_RED, \
 		LIME_SHOCK, BLACK};
 	static int	palete2[5] = {0x7F1637, 0x047878, 0xFFB733, 0xF57336, 0xC22121};
 	static int	palete3[5] = {0x0D1C33, 0x17373C, 0x2B6832, 0x4F9300, 0xA1D700};
 	static int	palete4[5] = {0x002F2F, 0x046380, 0xEFECCA, 0xA7A37E, 0xE6E2AF};
-	static int	palete5[6] = {0xE6E2AF, 0xA7A37E, 0xEFECCA, 0x046380, \
-		0x002F2F, BLACK};
-	static int	palete6[9] = {MAGENTA_BURST, ELECTRIC_BLUE, LIME_SHOCK, \
-		NEON_ORANGE, PSYCHEDELIC_PURPLE, AQUA_DREAM, HOT_PINK, LAVA_RED, BLACK};
-	static int	palete7[2] = {WHITE, BLACK};
 	int			color;
 
 	if (actv_pal == 1)
@@ -66,13 +61,33 @@ int	setcolor(int actv_pal, int n, const int maxiter)
 		color = getcolor(n, maxiter, palete2, 5);
 	else if (actv_pal == 3)
 		color = getcolor(n, maxiter, palete3, 5);
-	else if (actv_pal == 4)
+	else
 		color = getcolor(n, maxiter, palete4, 5);
-	else if (actv_pal == 5)
+	return (color);
+}
+
+static int	getcolorpaletes2(int actv_pal, int n, const int maxiter)
+{
+	static int	palete5[6] = {0xE6E2AF, 0xA7A37E, 0xEFECCA, 0x046380, \
+		0x002F2F, BLACK};
+	static int	palete6[9] = {MAGENTA_BURST, ELECTRIC_BLUE, LIME_SHOCK, \
+		NEON_ORANGE, PSYCHEDELIC_PURPLE, AQUA_DREAM, HOT_PINK, LAVA_RED, BLACK};
+	static int	palete7[2] = {BLACK, WHITE};
+	int			color;
+
+	if (actv_pal == 5)
 		color = getcolor(n, maxiter, palete5, 6);
 	else if (actv_pal == 6)
 		color = getcolor(n, maxiter, palete6, 9);
 	else
 		color = getcolor(n, maxiter, palete7, 2);
 	return (color);
+}
+
+int	setcolor(int actv_pal, int n, const int maxiter)
+{
+	if (actv_pal > 0 && actv_pal < 5)
+		return (getcolorpaletes1(actv_pal, n, maxiter));
+	else
+		return (getcolorpaletes2(actv_pal, n, maxiter));
 }
