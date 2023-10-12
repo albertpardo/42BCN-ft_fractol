@@ -6,17 +6,21 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 08:28:27 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 09:08:13 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/12 13:16:38 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mandel_julia.h"
 
-static double	getlowlimit(double zoomfactor, double up, double low, int w, \
-		int pos)
+static double	getk(double zoomfactor, int w, int pos)
 {
-	return ((1 - zoomfactor) * (up - low) / w * pos + low);
+	return ((1 - zoomfactor) * pos / w);
+}
+
+static double	getlowlimit(double k, double up, double low)
+{
+	return (k * (up - low) + low);
 }
 
 static double	getuplimit( double lowlimit, double zoomfactor, double up, \
@@ -41,17 +45,18 @@ void	mandelzoom(t_mandel_data *data, t_imgdata *img)
 	t_complexnum	c_mpos;
 	double			oldmin;
 	double			oldmax;
+	double			k;
 
 	c_mpos = getcnmouse(data, img);
 	oldmin = data->minre;
 	oldmax = data->maxre;
-	data->minre = getlowlimit(img->zoom, oldmax, oldmin, img->width, \
-			img->x_mouse);
+	k = getk(img->zoom, img->width, img->x_mouse);
+	data->minre = getlowlimit(k, oldmax, oldmin);
 	data->maxre = getuplimit(data->minre, img->zoom, oldmax, oldmin);
 	oldmin = data->minim;
 	oldmax = data->maxim;
-	data->maxim = getlowlimit(img->zoom, oldmin, oldmax, img->height, \
-			img->y_mouse);
+	k = getk(img->zoom, img->height, img->y_mouse);
+	data->maxim = getlowlimit(k, oldmin, oldmax);
 	data->minim = getuplimit(data->maxim, img->zoom, oldmin, oldmax);
 	c_mpos = getcnmouse(data, img);
 	img->x_mouse = 0;
