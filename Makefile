@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/10 17:48:27 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/12 09:01:13 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,14 @@ MLX = $(MLX_OPENGL)
 NAME = fractol
 SRC = $(NAME).c \
 		cli_utils.c \
-		mandel_julia.c \
 		colors.c \
+		event_exit_mouse.c \
+		event_key.c \
+		mandel_julia.c \
+		mandel_julia_utils.c \
+		mandel_julia_zoom_utils.c \
 		mlx.c \
-		event_hook.c \
-		set_mandel_julia.c \
-		mandel_julia_utils.c
+		set_mandel_julia.c 
 
 HEADER = cli.h
 OBJS = $(SRC:%.c=%.o)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel_julia.h                                           :+:      :+:    :+:   */
+/*   mandel_julia.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 13:03:59 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/10 10:47:37 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/11 14:50:59 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/11 14:51:40 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ typedef struct complexnum
 
 typedef struct s_mandel_data
 {
-	int		hasbeeninit;
-	double	minre;
-	double	maxre;
-	double	minim;
-	double	maxim;
-	t_complexnum factor_ncmplx;
-
+	int				hasbeeninit;
+	double			minre;
+	double			maxre;
+	double			minim;
+	double			maxim;
+	t_complexnum	factor_ncmplx;
 }				t_mandel_data;
 
 t_mandel_data	getmandelinitdata(t_imgdata *img);

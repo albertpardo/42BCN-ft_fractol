@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/11 12:13:25 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/12 08:51:59 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@
 # define MANDEL_SET 1
 # define JULIA_SET 2
 
-
 typedef struct mlxdata
 {
 	void	*mlx_ptr;
@@ -102,11 +101,14 @@ void		my_put_pixel(t_imgdata *data, int x, int y, int color);
 t_mlxdata	start_newindow(int w, int h, char *str);
 t_imgdata	start_newimage(t_mlxdata win);
 
-//event_hook.c
+//event_exit_mouse.c
 int			exit_x(t_winimg *winimg);
-int			deal_key(int key, t_winimg *winimg);
 int			mouse_event(int button, int x, int y, t_winimg *winimg);
 
+//event_key.c
+int			deal_key(int key, t_winimg *winimg);
+
 // mandel_julia.c
-void		mandel_julia(int fractol_set , double julia_re, double julia_im);
+void		mandel_julia(int fractol_set, double julia_re, double julia_im);
+
 #endif

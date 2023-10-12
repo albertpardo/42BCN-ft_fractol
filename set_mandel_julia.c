@@ -1,24 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mandel_julia.c                                           :+:      :+:    :+:   */
+/*   set_mandel_julia.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:43:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/11 12:13:27 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/12 09:15:24 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/12 09:31:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
- * Put mandelbrot figure with colors on screen
- * The keys UP, DOWN, LEFT , RIGHT , move the mandelbrot figure
- * 
- * Mouse sc
- *
- * In this version a "static struct is used for the mandelbrot data"
- *
- */
 
 #include "fractol.h"
 #include "mandel_julia.h"
@@ -59,14 +49,12 @@ void	set_mandel_julia(int maxiter, t_imgdata *img)
 	int						y;
 	t_complexnum			c;
 	static t_mandel_data	mdat;
-	int						color;
 
 	if (!mdat.hasbeeninit)
 		mdat = getmandelinitdata(img);
 	else
 		setmandelnewdata(&mdat, img);
 	y = 0;
-	printf("Active palete = %d\n", img->act_plte);
 	while (y < img->height)
 	{
 		c.im = (mdat.minim - mdat.maxim) / img->height * y + mdat.maxim;
@@ -74,8 +62,9 @@ void	set_mandel_julia(int maxiter, t_imgdata *img)
 		while (x < img->width)
 		{
 			c.re = (mdat.maxre - mdat.minre) / img->width * x + mdat.minre;
-			color = setcolor(img->act_plte, getvalmandjul(c, maxiter, img), maxiter);
-			my_put_pixel(img, x, y, color);
+			my_put_pixel(img, x, y, \
+					setcolor(img->act_plte, getvalmandjul(c, maxiter, img), \
+						maxiter));
 			x++;
 		}
 		y++;

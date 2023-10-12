@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/11 12:13:22 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:41:27 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ static void	managerargsjulia(char *cre, char *cim)
 		printf("\t\treal = %f, img = %f\n", re, im);
 		if ((re * re + im * im) <= 4.0)
 		{
-			mandel_julia(JULIA_SET, re , im);
+			mandel_julia(JULIA_SET, re, im);
 			ft_printf("\nJulia selected with valid arguments\n");
-			mandel_julia(MANDEL_SET, re , im);
+			mandel_julia(MANDEL_SET, re, im);
 		}
 		else
 			ft_printf("\nArguments must be : (real^2 + imaginary^2) =< 4.\n");
@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '1')
 	{
 		ft_printf("Maldenbrot selected\n");
-		mandel_julia(MANDEL_SET, 0.0 , 0.0);
+		mandel_julia(MANDEL_SET, 0.0, 0.0);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2')
 	{
