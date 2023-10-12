@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:15:24 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 09:31:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:15:22 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 		ct.re = img->julia_re;
 		ct.im = img->julia_img;
 	}
-	while ((z2.re + z2.im) < 4 && n < MaxIteration)
+	while ((z2.re + z2.im) < 4 && n++ < MaxIteration)
 	{
 		z.im = 2 * z.re * z.im + ct.im;
 		z.re = z2.re - z2.im + ct.re;
 		z2.re = z.re * z.re;
 		z2.im = z.im * z.im;
-		n++;
 	}
 	return (n);
 }
