@@ -6,19 +6,25 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:15:24 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 18:36:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:03:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mandel_julia.h"
 
-static double my_abs(double n)
+static double	my_abs(double n)
 {
 	if (n < 0.0)
 		return (-n);
 	else
 		return (n);
+}
+
+static void	set_ct_julia(t_complexnum *ct, t_imgdata *img)
+{
+	ct->re = img->julia_re;
+	ct->im = img->julia_img;
 }
 
 static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
@@ -36,10 +42,7 @@ static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 	ct.im = c.im;
 	n = 0;
 	if (img->fractol_set == JULIA_SET)
-	{
-		ct.re = img->julia_re;
-		ct.im = img->julia_img;
-	}
+		set_ct_julia(&ct, img);
 	while ((z2.re + z2.im) < 4 && n++ < MaxIteration)
 	{
 		if (img->fractol_set != SHIP_SET)
