@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/11 14:41:27 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:12:47 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	printinfo(void)
 	ft_printf("Choose the number from the next fractals:\n");
 	ft_printf("\t- 1) Mandelbrot fractal.\n");
 	ft_printf("\t- 2) Julia fractal\n");
-	ft_printf("\t- 3) TODEFINE fractal\n");
+	ft_printf("\t- 3) Burningship fractal\n");
 	ft_printf("\nUsage:\n");
 	ft_printf("./fractol [Fractal_Number]\n\n");
 	ft_printf("Julia has two optional params. Julia usage:\n");
@@ -40,6 +40,7 @@ static void	printinfo(void)
 	ft_printf("\t- Maldebrot: ./fractol 1\n");
 	ft_printf("\t- Julia    : ./fractol 2\n");
 	ft_printf("\t- Julia    : ./fractol 2 -0.4 0.5\n");
+	ft_printf("\t- Burningship    : ./fractol 3\n");
 }
 
 static void	printnovalid(char *str)
@@ -87,7 +88,10 @@ int	main(int argc, char **argv)
 		mandel_julia(JULIA_SET, JULIA_RE, JULIA_IM);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '3')
-		ft_printf("TODEFINE fractal selected\n");
+	{
+		ft_printf("Burningship fractal selected\n");
+		mandel_julia(SHIP_SET, 0.0, 0.0);
+	}
 	else if (argc == 4 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2' )
 		managerargsjulia(argv[2], argv[3]);
 	else

@@ -6,12 +6,20 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:15:24 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 12:15:22 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:36:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mandel_julia.h"
+
+static double my_abs(double n)
+{
+	if (n < 0.0)
+		return (-n);
+	else
+		return (n);
+}
 
 static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 {
@@ -24,9 +32,9 @@ static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 	z.im = c.im;
 	z2.re = z.re * z.re;
 	z2.im = z.im * z.im;
-	n = 0;
 	ct.re = c.re;
 	ct.im = c.im;
+	n = 0;
 	if (img->fractol_set == JULIA_SET)
 	{
 		ct.re = img->julia_re;
@@ -34,7 +42,10 @@ static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 	}
 	while ((z2.re + z2.im) < 4 && n++ < MaxIteration)
 	{
-		z.im = 2 * z.re * z.im + ct.im;
+		if (img->fractol_set != SHIP_SET)
+			z.im = 2 * z.re * z.im + ct.im;
+		else
+			z.im = my_abs(2 * z.re * z.im) + ct.im;
 		z.re = z2.re - z2.im + ct.re;
 		z2.re = z.re * z.re;
 		z2.im = z.im * z.im;

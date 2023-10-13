@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:01:48 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 16:37:31 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:34:22 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	mandel_julia(int fractol_set, double julia_re, double julia_im)
 	t_winimg	winimg;
 
 	if (fractol_set == MANDEL_SET)
-		win = start_newindow(MAX_X, MAX_Y, "Colors Mandelbrot");
+		win = start_newindow(MAX_X, MAX_Y, "Mandelbrot");
 	else if (fractol_set == JULIA_SET)
-		win = start_newindow(MAX_X, MAX_Y, "Colors Julia");
+		win = start_newindow(MAX_X, MAX_Y, "Julia");
+	else if (fractol_set == SHIP_SET)
+		win = start_newindow(MAX_X, MAX_Y, "Burningship");
 	else
 		return ;
 	if (win.mlx_ptr != NULL && win.win_ptr != NULL)

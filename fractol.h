@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 16:45:59 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:12:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 
 # define MANDEL_SET 1
 # define JULIA_SET 2
+# define SHIP_SET 3
 
 typedef struct mlxdata
 {
