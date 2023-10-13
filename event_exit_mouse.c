@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:36:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/11 14:37:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:47:21 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	mouse_event(int button, int x, int y, t_winimg *winimg)
 			winimg->img->zoom = 1.0 / ZOOM_VAL;
 		else if (button == ZOOM_OUT_BUTTON)
 			winimg->img->zoom = ZOOM_VAL;
-		set_mandel_julia(MAX_ITER, winimg->img);
+		set_mandel_julia_ship(MAX_ITER, winimg->img);
 		mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
 		mlx_put_image_to_window(winimg->win->mlx_ptr, \
 			winimg->win->win_ptr, winimg->img->img, 0, 0);

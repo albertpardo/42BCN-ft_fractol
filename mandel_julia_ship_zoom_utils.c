@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel_julia_zoom_utils.c                          :+:      :+:    :+:   */
+/*   mandel_julia_ship_zoom_utils.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 08:28:27 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/12 13:16:38 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/13 19:26:56 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/13 19:36:20 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "mandel_julia.h"
+#include "mandel_julia_ship.h"
 
 static double	getk(double zoomfactor, int w, int pos)
 {

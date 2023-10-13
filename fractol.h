@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 18:12:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:54:30 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ typedef struct s_winimg
 // colors.c
 int			setcolor(int actv_pal, int n, const int maxiter);
 
-// set_mandel_julia.c
-void		set_mandel_julia(int MaxIteration, t_imgdata *img);
+// set_mandel_julia_ship.c
+void		set_mandel_julia_ship(int MaxIteration, t_imgdata *img);
 
 // using_mlx.c
 void		my_put_pixel(t_imgdata *data, int x, int y, int color);
@@ -109,7 +109,7 @@ int			mouse_event(int button, int x, int y, t_winimg *winimg);
 //event_key.c
 int			deal_key(int key, t_winimg *winimg);
 
-// mandel_julia.c
-void		mandel_julia(int fractol_set, double julia_re, double julia_im);
+// mandel_julia_ship.c
+void		mandel_julia_ship(int fractol_set, double jul_re, double jul_im);
 
 #endif

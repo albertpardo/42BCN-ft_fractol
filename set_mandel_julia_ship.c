@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mandel_julia.c                                 :+:      :+:    :+:   */
+/*   set_mandel_julia_ship.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 09:15:24 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:03:39 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/13 19:27:40 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/13 19:43:58 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "mandel_julia.h"
+#include "mandel_julia_ship.h"
 
 static double	my_abs(double n)
 {
@@ -27,7 +27,7 @@ static void	set_ct_julia(t_complexnum *ct, t_imgdata *img)
 	ct->im = img->julia_img;
 }
 
-static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
+static int	getval(t_complexnum c, int MaxIteration, t_imgdata *img )
 {
 	t_complexnum	z;
 	t_complexnum	z2;
@@ -56,7 +56,7 @@ static int	getvalmandjul(t_complexnum c, int MaxIteration, t_imgdata *img )
 	return (n);
 }
 
-void	set_mandel_julia(int maxiter, t_imgdata *img)
+void	set_mandel_julia_ship(int maxiter, t_imgdata *img)
 {
 	int						x;
 	int						y;
@@ -76,8 +76,7 @@ void	set_mandel_julia(int maxiter, t_imgdata *img)
 		{
 			c.re = (mdat.maxre - mdat.minre) / img->width * x + mdat.minre;
 			my_put_pixel(img, x, y, \
-					setcolor(img->act_plte, getvalmandjul(c, maxiter, img), \
-						maxiter));
+					setcolor(img->act_plte, getval(c, maxiter, img),maxiter));
 			x++;
 		}
 		y++;

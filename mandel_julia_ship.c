@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel_julia.c                        :+:      :+:    :+:   */
+/*   mandel_julia_ship.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 13:01:48 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:06:03 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/13 19:25:20 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/13 19:55:20 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	startwindow(t_winimg	*winimg)
 	mlx_key_hook(winimg->win->win_ptr, deal_key, winimg);
 	mlx_hook(winimg->win->win_ptr, X_RED, 1L << 0, exit_x, winimg);
 	mlx_mouse_hook(winimg->win->win_ptr, mouse_event, winimg);
-	set_mandel_julia(MAX_ITER, winimg->img);
+	set_mandel_julia_ship(MAX_ITER, winimg->img);
 	mlx_put_image_to_window(winimg->win->mlx_ptr, winimg->win->win_ptr, \
 			winimg->img->img, 0, 0);
 	mlx_loop(winimg->win->mlx_ptr);
 }
 
-void	mandel_julia(int fractol_set, double julia_re, double julia_im)
+void	mandel_julia_ship(int fractol_set, double jul_re, double jul_im)
 {
 	t_imgdata	img;
 	t_mlxdata	win;
@@ -41,8 +41,8 @@ void	mandel_julia(int fractol_set, double julia_re, double julia_im)
 		if (img.img != NULL)
 		{
 			img.fractol_set = fractol_set;
-			img.julia_re = julia_re;
-			img.julia_img = julia_im;
+			img.julia_re = jul_re;
+			img.julia_img = jul_im;
 			winimg.win = &win;
 			winimg.img = &img;
 			startwindow(&winimg);

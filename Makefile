@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/12 16:06:23 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/13 19:21:34 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,16 @@ SRC = $(NAME).c \
 		colors.c \
 		event_exit_mouse.c \
 		event_key.c \
-		mandel_julia.c \
-		mandel_julia_utils.c \
-		mandel_julia_zoom_utils.c \
+		mandel_julia_ship.c \
+		mandel_julia_ship_utils.c \
+		mandel_julia_ship_zoom_utils.c \
 		using_mlx.c \
-		set_mandel_julia.c
+		set_mandel_julia_ship.c
 
 HEADERS = cli.h \
 		 fractol.h \
-		 mandel_julia.h \
-		 mandel_julia_zoom_utils.h
+		 mandel_julia_ship.h \
+		 mandel_julia_ship_zoom_utils.h
 
 OBJS = $(SRC:%.c=%.o)
 

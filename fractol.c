@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 18:12:47 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:46:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static void	managerargsjulia(char *cre, char *cim)
 		printf("\t\treal = %f, img = %f\n", re, im);
 		if ((re * re + im * im) <= 4.0)
 		{
-			mandel_julia(JULIA_SET, re, im);
+			mandel_julia_ship(JULIA_SET, re, im);
 			ft_printf("\nJulia selected with valid arguments\n");
-			mandel_julia(MANDEL_SET, re, im);
+			mandel_julia_ship(MANDEL_SET, re, im);
 		}
 		else
 			ft_printf("\nArguments must be : (real^2 + imaginary^2) =< 4.\n");
@@ -80,17 +80,17 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '1')
 	{
 		ft_printf("Maldenbrot selected\n");
-		mandel_julia(MANDEL_SET, 0.0, 0.0);
+		mandel_julia_ship(MANDEL_SET, 0.0, 0.0);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2')
 	{
 		ft_printf("Julia selected without arguments\n");
-		mandel_julia(JULIA_SET, JULIA_RE, JULIA_IM);
+		mandel_julia_ship(JULIA_SET, JULIA_RE, JULIA_IM);
 	}
 	else if (argc == 2 && ft_strlen(argv[1]) == 1 && argv[1][0] == '3')
 	{
 		ft_printf("Burningship fractal selected\n");
-		mandel_julia(SHIP_SET, 0.0, 0.0);
+		mandel_julia_ship(SHIP_SET, 0.0, 0.0);
 	}
 	else if (argc == 4 && ft_strlen(argv[1]) == 1 && argv[1][0] == '2' )
 		managerargsjulia(argv[2], argv[3]);

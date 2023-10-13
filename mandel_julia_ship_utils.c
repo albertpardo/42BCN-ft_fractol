@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel_julia_utils.c                               :+:      :+:    :+:   */
+/*   mandel_julia_ship_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:53:33 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:15:01 by apardo-m         ###   ########.fr       */
+/*   Created: 2023/10/13 19:26:21 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/10/13 19:35:58 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "mandel_julia.h"
-#include "mandel_julia_zoom_utils.h"
+#include "mandel_julia_ship.h"
+#include "mandel_julia_ship_zoom_utils.h"
 
 static double	getfactor( double max, double min, int reference)
 {
