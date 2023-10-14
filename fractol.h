@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:54:30 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:52:14 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 
 # define MAX_ITER 1000
 # define MAX_PALETES 7
-# define DEFAULT_PALETE 3
+# define DEFAULT_PALETE 1
 
 # define MANDEL_SET 1
 # define JULIA_SET 2

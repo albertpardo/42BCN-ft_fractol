@@ -6,11 +6,12 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:25:20 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:55:20 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 23:18:27 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "./libft/ft_printf.h"
 
 static void	startwindow(t_winimg	*winimg)
 {
@@ -23,18 +24,23 @@ static void	startwindow(t_winimg	*winimg)
 	mlx_loop(winimg->win->mlx_ptr);
 }
 
+void	setwindow(int fractol_set, t_mlxdata	*win)
+{
+	if (fractol_set == MANDEL_SET)
+		*win = start_newindow(MAX_X, MAX_Y, "Mandelbrot");
+	else if (fractol_set == JULIA_SET)
+		*win = start_newindow(MAX_X, MAX_Y, "Julia");
+	else if (fractol_set == SHIP_SET)
+		*win = start_newindow(MAX_X, MAX_Y, "Burningship");
+}
+
 void	mandel_julia_ship(int fractol_set, double jul_re, double jul_im)
 {
 	t_imgdata	img;
 	t_mlxdata	win;
 	t_winimg	winimg;
 
-	if (fractol_set == MANDEL_SET)
-		win = start_newindow(MAX_X, MAX_Y, "Mandelbrot");
-	else if (fractol_set == JULIA_SET)
-		win = start_newindow(MAX_X, MAX_Y, "Julia");
-	else if (fractol_set == SHIP_SET)
-		win = start_newindow(MAX_X, MAX_Y, "Burningship");
+	setwindow(fractol_set, &win);
 	if (win.mlx_ptr != NULL && win.win_ptr != NULL)
 	{
 		img = start_newimage(win);
@@ -47,7 +53,12 @@ void	mandel_julia_ship(int fractol_set, double jul_re, double jul_im)
 			winimg.img = &img;
 			startwindow(&winimg);
 		}
+		free(win.win_ptr);
+		free(win.mlx_ptr);
 	}
-	free(winimg.win->win_ptr);
-	free(winimg.win->mlx_ptr);
+	if (win.mlx_ptr == NULL || win.win_ptr == NULL || img.img == NULL)
+	{
+		ft_printf("MEMORY PROBLEMS!!");
+		exit(1);
+	}
 }

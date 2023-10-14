@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:36:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:47:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 22:47:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	exit_x(t_winimg *winimg)
 	mlx_destroy_image(winimg->win->mlx_ptr, winimg->img->img);
 	mlx_destroy_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
 	exit (0);
-	return (0);
 }
 
 int	mouse_event(int button, int x, int y, t_winimg *winimg)
