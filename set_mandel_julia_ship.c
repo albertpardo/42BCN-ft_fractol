@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:27:40 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:43:58 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:55:53 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	set_mandel_julia_ship(int maxiter, t_imgdata *img)
 		{
 			c.re = (mdat.maxre - mdat.minre) / img->width * x + mdat.minre;
 			my_put_pixel(img, x, y, \
-					setcolor(img->act_plte, getval(c, maxiter, img),maxiter));
+				setcolor(img->act_plte, getval(c, maxiter, img), maxiter));
 			x++;
 		}
 		y++;

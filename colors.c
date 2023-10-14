@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:29:16 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:34:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:15:45 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,26 @@
 #define ELECTRIC_BLUE   0x0066FF  // A radiant blue
 #define LAVA_RED        0xFF3300  // A bright, molten red
 
-static int	map(int a, int b, int i, int max)
+static int	map(int a, int b, double f)
 {
-	return ((b - a) * i / max + a);
+	if (b > a)
+		return ((b - a) * f + a);
+	return (a - (a - b) * f);
 }
 
 static int	getcolor(int n, const int maxiter, int *palete, int ncolpalete)
 {
-	int	i;
+	int		i;
+	double	step;
+	double	fpos;
 
+	step = (double)(ncolpalete - 1) / maxiter;
+	fpos = n * step;
+	i = (int) fpos;
 	if (n == maxiter)
 		return (palete[ncolpalete - 1]);
-	i = 1;
-	while (n > i * (maxiter / (ncolpalete - 1)))
-		i++;
-	return (map(palete[i - 1], palete[i], n, maxiter));
+	else
+		return (map(palete[i], palete[i + 1], fpos - i));
 }
 
 static int	getcolorpaletes1(int actv_pal, int n, const int maxiter)
@@ -72,7 +77,7 @@ static int	getcolorpaletes2(int actv_pal, int n, const int maxiter)
 		0x002F2F, BLACK};
 	static int	palete6[9] = {MAGENTA_BURST, ELECTRIC_BLUE, LIME_SHOCK, \
 		NEON_ORANGE, PSYCHEDELIC_PURPLE, AQUA_DREAM, HOT_PINK, LAVA_RED, BLACK};
-	static int	palete7[2] = {BLACK, WHITE};
+	static int	palete7[4] = {MAGENTA_BURST, AQUA_DREAM, WHITE, BLACK};
 	int			color;
 
 	if (actv_pal == 5)
@@ -80,7 +85,7 @@ static int	getcolorpaletes2(int actv_pal, int n, const int maxiter)
 	else if (actv_pal == 6)
 		color = getcolor(n, maxiter, palete6, 9);
 	else
-		color = getcolor(n, maxiter, palete7, 2);
+		color = getcolor(n, maxiter, palete7, 4);
 	return (color);
 }
 

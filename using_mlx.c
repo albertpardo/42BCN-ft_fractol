@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:33:14 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/09 12:33:20 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:24:25 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ t_imgdata	start_newimage(t_mlxdata win)
 		img.x_mouse = 0;
 		img.y_mouse = 0;
 		img.act_plte = DEFAULT_PALETE;
-		printf("start_newimage() : %d\n", img.act_plte);
 	}
 	return (img);
 }

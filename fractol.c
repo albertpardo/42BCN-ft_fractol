@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/13 19:46:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:13:21 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	managerargsjulia(char *cre, char *cim)
 		re = ft_mystrtod(cre);
 		im = ft_mystrtod(cim);
 		ft_printf("\t Conversion: \n");
-		printf("\t\treal = %f, img = %f\n", re, im);
+		ft_printf("\t\treal = %f, img = %f\n", re, im);
 		if ((re * re + im * im) <= 4.0)
 		{
 			mandel_julia_ship(JULIA_SET, re, im);
