@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:21:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/14 21:52:14 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:06:26 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define ZOOM_IN_BUTTON	5
 # define ZOOM_OUT_BUTTON 4
 
-# define MAX_ITER 1000
+# define MAX_ITER 500
 # define MAX_PALETES 7
 # define DEFAULT_PALETE 1
 
