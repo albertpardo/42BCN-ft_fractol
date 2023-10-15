@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:29:16 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/14 22:46:04 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/15 18:29:26 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	getcolor(int n, const int maxiter, int *palete, int ncolpalete)
 
 static int	getcolorpaletes1(int actv_pal, int n, const int maxiter)
 {
-	static int	palete1[5] = {0x0066FF, 0xFF00FF, 0xFF3300,	0xCCFF00, BLACK};
+	static int	palete1[5] = {0x99D1F9, 0x94DDFF, 0x55D3F0, 0x005555, WHITE};
 	static int	palete2[10] = {0x2f4f4f, 0x006400, 0x4b0082, 0xff0000, \
 		0xffa500, 0xffff00, 0xff0f0f, 0x00fa9a, 0x00ffff, BLACK};
 	static int	palete3[6] = {0x0D1C33, 0x17373C, 0x2B6832, 0x4F9300, \

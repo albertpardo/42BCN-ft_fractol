@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:26:21 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/14 20:14:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/15 17:24:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@ t_mandel_data	getmandelinitdata(t_imgdata *img)
 	dt.hasbeeninit = 1;
 	dt.minre = -2.0;
 	dt.maxre = 2.0;
-	dt.minim = 2.0;
-	dt.maxim = -2.0;
+	dt.minim = -2.0;
+	dt.maxim = 2.0;
+	if (img->fractol_set == SHIP_SET)
+	{
+		dt.minim = 2.0;
+		dt.maxim = -2.0;
+	}
 	dt.factor_ncmplx = getfactor_numcplx(&dt, img);
 	return (dt);
 }
