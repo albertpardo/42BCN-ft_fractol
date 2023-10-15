@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/15 17:00:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/15 19:08:41 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 #define KO_MESSAGE "||   No  valid arguments.  ||"
 #define KO_JULIA_MESSAGE "||   No  valid arguments for Julia.  ||" 
-#define JULIA_RE -1.9
-#define JULIA_IM 0.7
+#define JULIA_RE 0.285
+#define JULIA_IM 0.0
 
 static void	printinfo(void)
 {
