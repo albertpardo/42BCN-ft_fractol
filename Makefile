@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/15 20:17:44 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/15 20:24:23 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,8 @@ clean:
 
 fclean: clean
 	@make --no-print-directory fclean -C $(LIBFT_DIR)
-	@echo "--> Remove files : $(NAME) $(NAME_BONUS)"
-	rm -f $(NAME) $(NAME_BONUS)
+	@echo "--> Remove files : $(NAME)"
+	rm -f $(NAME)
 
 re: fclean all
 
