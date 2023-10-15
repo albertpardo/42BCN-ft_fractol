@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/15 16:31:55 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/15 20:17:44 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,6 @@ HEADERS = cli.h \
 
 OBJS = $(SRC:%.c=%.o)
 
-NAMES_BONUS = fractol_bonus
-SRC_BONUS = $(NAME_BONUS).c
-HEADER_BONUS = cli.h
-
 FLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft/
@@ -54,11 +50,6 @@ $(NAME): $(LIBFT) $(OBJS)
 %.o: %.c Makefile $(HEADERS)
 	cc $(FLAGS) -I $(MLX) -c $< -o $@
 
-bonus: $(NAME_BONUS)
-
-$(NAME_BONUS): Makefile $(HEADER_BONUS) $(LIBFT)
-	cc $(FLAGS) $(SRC_BONUS) $(LIBFT) -o $(NAME_BONUS)
-
 libs:
 	@$(MAKE) -C $(LIBFT_DIR)
 
@@ -74,4 +65,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re 
