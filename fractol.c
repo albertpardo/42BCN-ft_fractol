@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 10:18:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/10/14 23:04:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2023/10/15 17:00:32 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static void	printinfo(void)
 	ft_printf("- They must comply: (real^2 + imaginary^2) =< 4.\n");
 	ft_printf("- When they are not indicated, default values are used.\n");
 	ft_printf("Examples of use:\n");
-	ft_printf("\t- Maldebrot: ./fractol 1\n");
-	ft_printf("\t- Julia    : ./fractol 2\n");
-	ft_printf("\t- Julia    : ./fractol 2 -0.4 0.5\n");
-	ft_printf("\t- Burningship    : ./fractol 3\n");
+	ft_printf("\t- Maldebrot  : ./fractol 1\n");
+	ft_printf("\t- Julia      : ./fractol 2\n");
+	ft_printf("\t- Julia      : ./fractol 2 -0.4 0.5\n");
+	ft_printf("\t- Burningship: ./fractol 3\n");
 }
 
 static void	printnovalid(char *str)
@@ -54,19 +54,14 @@ static void	managerargsjulia(char *cre, char *cim)
 	double	re;
 	double	im;
 
-	ft_printf("\nJulia selected with arguments.\n");
-	ft_printf("\tArguments to be tested : '%s' and '%s'\n\n", cre, cim);
 	if (istrtodoublevalidformat(cre) && istrtodoublevalidformat(cim))
 	{
 		re = ft_mystrtod(cre);
 		im = ft_mystrtod(cim);
-		ft_printf("\t Conversion: \n");
-		ft_printf("\t\treal = %f, img = %f\n", re, im);
 		if ((re * re + im * im) <= 4.0)
 		{
-			mandel_julia_ship(JULIA_SET, re, im);
 			ft_printf("\nJulia selected with valid arguments\n");
-			mandel_julia_ship(MANDEL_SET, re, im);
+			mandel_julia_ship(JULIA_SET, re, im);
 		}
 		else
 			ft_printf("\nArguments must be : (real^2 + imaginary^2) =< 4.\n");

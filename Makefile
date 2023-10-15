@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:52:23 by apardo-m          #+#    #+#              #
-#    Updated: 2023/10/13 19:21:34 by apardo-m         ###   ########.fr        #
+#    Updated: 2023/10/15 16:31:55 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,12 +64,13 @@ libs:
 
 clean:
 	@make --no-print-directory clean -C $(LIBFT_DIR)
+	@make --no-print-directory clean -C $(MLX)
 	rm -rf $(OBJS)
 
 fclean: clean
 	@make --no-print-directory fclean -C $(LIBFT_DIR)
-	@echo "--> Remove files : $(NAME) $(NAME_BONUS) mandel"
-	rm -f $(NAME) $(NAME_BONUS) mandel
+	@echo "--> Remove files : $(NAME) $(NAME_BONUS)"
+	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
