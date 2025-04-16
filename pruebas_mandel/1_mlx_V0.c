@@ -1,0 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   1_mlx_V0.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 14:32:55 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/08/28 20:09:56 by apardo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol1V0.h"
+
+void	my_mlx_pixel_put(t_imgdata *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
+
+int	exit_x(t_mlxdata *win)
+{
+	mlx_destroy_window(win->mlx_ptr, win->win_ptr);
+	exit (1);
+}
+
+int	deal_key(int key, void *win)
+{
+	if (key == ESC_KEY)
+		exit_x(win);
+	return (0);
+}
+
+t_mlxdata	start_newindow(int w, int h, char *str)
+{
+	t_mlxdata	mlx;
+
+	mlx.mlx_ptr = mlx_init();
+	if (mlx.mlx_ptr != NULL)
+		mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, w, h, str);
+	else
+		mlx.win_ptr = NULL;
+	mlx.height = h;
+	mlx.width = w;
+	return (mlx);
+}
+
+t_imgdata	start_newimage(t_mlxdata win, int color)
+{
+	t_imgdata	img;
+
+	img.img = mlx_new_image(win.mlx_ptr, win.width, win.height);
+	if (img.img != NULL)
+	{
+		img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, \
+			&img.line_length, &img.endian);
+		img.height = win.height;
+		img.width = win.width;
+		img.fondo_color = color;
+	}
+	return (img);
+}

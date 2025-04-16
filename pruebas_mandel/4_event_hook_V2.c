@@ -1,0 +1,88 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   4_event_hook_V2.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/31 08:54:37 by apardo-m          #+#    #+#             */
+/*   Updated: 2023/09/08 15:26:55 by apardo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol4V2.h"
+
+int	exit_x(t_winimg *winimg)
+{
+	mlx_destroy_image(winimg->win->mlx_ptr, winimg->img->img);
+	mlx_destroy_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
+	exit (0);
+	return (0);
+}
+
+static void	refresh_img(t_winimg *winimg)
+{
+	basic_mandel(MAX_ITER, winimg->img);
+	mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
+	mlx_put_image_to_window(winimg->win->mlx_ptr, \
+		winimg->win->win_ptr, winimg->img->img, 0, 0);
+}
+
+static void	set_intvalue_refresh_img(int *var, int val, t_winimg *winimg)
+{
+	*var = val;
+	refresh_img(winimg);
+}
+
+static void	set_doubvalue_refresh_img(double *var, double val, t_winimg *winimg)
+{
+	*var = val;
+	refresh_img(winimg);
+}
+
+int	deal_key(int key, t_winimg *winimg)
+{
+	if (key == ESC_KEY)
+		exit_x(winimg);
+	if (key == LEFT_KEY)
+		set_doubvalue_refresh_img(&winimg->img->x_move, -MOVE_VAL, winimg);
+	else if (key == RIGHT_KEY)
+		set_doubvalue_refresh_img(&winimg->img->x_move, MOVE_VAL, winimg);
+	else if (key == DOWN_KEY)
+		set_doubvalue_refresh_img(&winimg->img->y_move, MOVE_VAL, winimg);
+	else if (key == UP_KEY)
+		set_doubvalue_refresh_img(&winimg->img->y_move, -MOVE_VAL, winimg);
+	else if (key == ONE || key == ONE_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 1, winimg);
+	else if (key == TWO || key == TWO_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 2, winimg);
+	else if (key == THREE || key == THREE_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 3, winimg);
+	else if (key == FOUR || key == FOUR_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 4, winimg);
+	else if (key == FIVE || key == FIVE_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 5, winimg);
+	else if (key == SIX || key == SIX_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 6, winimg);
+	else if (key == SEVEN || key == SEVEN_NUM)
+		set_intvalue_refresh_img(&winimg->img->act_plte, 7, winimg);
+	return (0);
+}
+
+int	mouse_event(int button, int x, int y, t_winimg *winimg)
+{
+	if (button == ZOOM_IN_BUTTON || button == ZOOM_OUT_BUTTON)
+	{
+		winimg->img->x_mouse = x;
+		winimg->img->y_mouse = y;
+		if (button == ZOOM_IN_BUTTON)
+			winimg->img->zoom = 1.0 / ZOOM_VAL;
+		else if (button == ZOOM_OUT_BUTTON)
+			winimg->img->zoom = ZOOM_VAL;
+		basic_mandel(MAX_ITER, winimg->img);
+		mlx_clear_window(winimg->win->mlx_ptr, winimg->win->win_ptr);
+		mlx_put_image_to_window(winimg->win->mlx_ptr, \
+			winimg->win->win_ptr, winimg->img->img, 0, 0);
+	}
+	return (0);
+}
